@@ -1,0 +1,32 @@
+<!-- Formulaire de "Welcome" 😁 -->
+<img src="/assets/imgs/welcome.png" alt="Hello jeune joueur !" class="img-welcome">
+<div class="card">
+    <h2>Hello 🖖</h2>
+    <form 
+        [formGroup]="pseudoFormData"
+        (submit)="formSubmit()"
+    >
+        <label for="gamer">Donne ton pseudo... wesh frère !</label>
+        <div class="flex">
+            <input
+                formControlName="gamer"
+                type="text"
+                required
+                minlength="2"
+            >
+            <button [disabled]="!pseudoFormData.valid">Go !</button>
+        </div>
+    </form>
+</div>
+
+<div id="form-game" class="card d-none">
+    <h2>Bienvenue !</h2>
+    <form id="game">
+        <label for="number">Choisis un nombre entre 1 et 100</label>
+        <div class="flex">
+            <input type="text" id="number">
+            <button>Valider</button>
+        </div>
+    </form>
+    <h3 class="indication"></h3>
+</div>

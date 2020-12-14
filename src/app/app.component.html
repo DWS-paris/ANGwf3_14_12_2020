@@ -1,52 +1,29 @@
-<!-- Création de la balise HTML pour le popin -->
-<!-- Ajouter dynamiquement une classe dans le balise .overlay -->
-<!-- Capter le clic sur .overlay pour masquer le popin -->
-<!-- Capter le clic sur .overlay pour masquer le popin avec la fonction hidePopin() -->
-<div 
-  [ngClass]="{ 'displayed': showPopin, 'opacity': showOpacity }" 
-  (click)="hidePopin()"
-  class="overlay"
->
-  <!-- Récupérer les valeurs de popinImg -->
-  <img [src]="popinImg.source" [alt]="popinImg.info">
-</div>
+<header class="container w-75 mx-auto">
+  <h1>Angular : exercices</h1>
+  <nav>
+    <ul class="nav">
+      <li class="nav-item">
+        <!-- 
+          Utilisation de la directive routerLink
+          pour gérer la navigation entre les routes 
+        -->
+        <a class="nav-link" [routerLink]="'/'">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'/portfolio'">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'/game'">Jeu</a>
+      </li>
+    </ul>
+  </nav>
+</header>
 
-<div class="container w-75 mx-auto">
-  <div class="row">
-    <div class="col-md-6 col-lg-4">
-      <!-- Faire une boucle sur la collection colomn1 pour afficher les images -->
-      <!-- Capter le clic sur la balise img -->
-      <img 
-        *ngFor="let item of colomn1" 
-        [src]="item.source" 
-        [alt]="item.info" 
-        class="img-fluid rounded m-3 lightbox"
-        (click)="displayPopin(item)"
-      >
-    </div>
-    
-    <div class="col-md-6 col-lg-4">
-      <!-- Faire une boucle sur la collection colomn2 pour afficher les images (10, 5, 8) -->
-      <!-- Capter le clic sur la balise img -->
-      <img 
-        *ngFor="let item of colomn2" 
-        [src]="item.source" 
-        [alt]="item.info" 
-        class="img-fluid rounded m-3 lightbox"
-        (click)="displayPopin(item)"
-      >
-    </div>
+<main class="container w-75 mx-auto">
+  <!-- Ajouter la directive (balise HTML spécifique) pour afficher les composants des routes -->
+  <router-outlet></router-outlet>
+</main>
 
-    <div class="col-md-6 col-lg-4">
-      <!-- Faire une boucle sur la collection colomn3 pour afficher les images (2, 3, 4) -->
-      <!-- Capter le clic sur la balise img -->
-      <img 
-        *ngFor="let item of colomn3" 
-        [src]="item.source" 
-        [alt]="item.info" 
-        class="img-fluid rounded m-3 lightbox"
-        (click)="displayPopin(item)"
-      >
-    </div>
-  </div>
-</div>
+<footer class="container w-75 mx-auto">
+  <p>Under WTFL &copy; 2020 Julien Noyer</p>
+</footer>
